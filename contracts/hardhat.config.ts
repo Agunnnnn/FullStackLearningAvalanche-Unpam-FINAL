@@ -16,10 +16,16 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
-    avalancheFuji: {
+    _avalancheFuji: {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
       chainId: 43113,
       accounts: [USER_PRIVATE_KEY],
+    },
+    get avalancheFuji() {
+      return this._avalancheFuji;
+    },
+    set avalancheFuji(value) {
+      this._avalancheFuji = value;
     },
   },
   etherscan: {
